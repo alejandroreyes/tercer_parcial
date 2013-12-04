@@ -34,7 +34,7 @@ void presentar(int arr[3][3]){
 bool gano(int arr[3][3], int tipo){
     int cont;
 
-    //HORIZONTAL
+    //  POSIVILIDADES DE GANAR HORIZONTALMENTE
     for(int f=0; f < 3; f++){
         cont = 0;
         for(int c=0; c < 3; c++){
@@ -50,7 +50,7 @@ bool gano(int arr[3][3], int tipo){
         }
     }
 
-    //VERTICAL
+    // POSIVILIDADES DE GANAR VERTICALMENTE
     for(int c=0; c < 3; c++){
         cont = 0;
         for(int f=0; f < 3; f++){
@@ -66,7 +66,7 @@ bool gano(int arr[3][3], int tipo){
         }
     }
 
-    //DIAGONAL
+    // POSIBILIDADES DE GANAR  DIAGONALMENTE.
     if(arr[0][0] == tipo and arr[1][1] == tipo and arr[2][2] == tipo){
         return true;
     }
@@ -121,14 +121,14 @@ int main()
                 //inicializo el tablero
                 inicio(tablero);
 
-                // pide  la marca  que jugador desea  jugar
+                // PIDE   EL NOMBRE DEL  JUGADOR QUE DESEA  JUGAR.
                 cout << "Jugador 1: ";
                 cin >> jug1;
                 cout<<"\n";
                 cout << "Jugador 2: ";
                 cin >> jug2;
 
-               //inicia el   X-0
+               //inicia el  juego   X-0
                 do{
                     //pide  ingresar  la fila  y la columna  al jugador
                     do{
