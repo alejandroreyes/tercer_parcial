@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1386716811 source:c:\users\alejandro  reyes\documents\github\tercer_parcial\arreglos de cadenas extra\main.cpp
+	<iostream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
