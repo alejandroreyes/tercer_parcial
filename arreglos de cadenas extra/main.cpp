@@ -12,110 +12,104 @@ para agregar al final de la cadena  un  *
 presentar la cadena modificada con el * y ala par el numero de consonantes que tiene
 
 */
-
 const int n=5;
-int consonante[n];
-char cadena[n][30];
+  char cadena[n][30];
+  int consonante[n];
 
+  int contarc(char cadena[])
+  {        int i,consonantes,nl;
+          nl=strlen(cadena);
+          consonantes=0;
+          for( i=0;i<nl;i++)
+          {    switch (cadena[i])
+                  {
+                      case 'a':
+                      case 'A':
+                      case 'e':
+                      case 'E':
+                      case 'o':
+                      case 'O':
+                      case 'I':
+                      case 'i':
+                      case 'u':
+                      case 'U':
 
-
-void ingreso(char cadena[n][30])
-{ int i;
-    for(i=0;i<n;i++)
-    {
-        cout<<" ingresar  la cadena["<<i<<"]...";
-        cin.getline(cadena[i],30);
-      _flushall();
-    }
-}
-
-
-void cambiar(char cadena[n][30])
-{
-    int i;
-    int fin;
-     for(i=0;i<n;i++)
-     {
-         fin=strlen(cadena[i]);
-         cadena[i][fin]='*';
-
-     }
-}
-
-void presentar(char cadena[n][30],int consonante[])
-{ int i;
-  for(i=0;i<n;i++)
-  {
-      cout<<"cadena ["<<i<<"]..."<<cadena[i]<<"tiene "<<consonante[i]<<" consonantes "<<"\n";
+                        break;
+                      default :
+                          consonantes++;
+                        break;
+                  }
+          }
+          return consonantes;
   }
-
-}
-
-
-void presentarmayor(char cadena[n][30],int consonante[])
-{ int i,pos,mayor;
-mayor=0;
-  for(i=0;i<n;i++)
+  void contarConsonantes(char cadena[n][30],int consonante[])
   {
-      if(mayor<consonante[i])
+    int i;
+      for(i=0;i<n;i++)
       {
-          mayor=consonante[i];
-          pos=i;
+          consonante[i]=contarc(cadena[i]);
       }
   }
-  cout<<"mayor es "<<cadena[pos]<<"con  "<<mayor<<"\n";
-}
 
-int contar(char cadena[])
-{
-    int i,consonantes,nl;
+  void ingreso(char cadena[n][30])
+  {
+      int i;
+      for(i=0;i<n;i++)
+      {
+          cout<<"Ingresar la cadena["<<i<<"]..:";
+          cin.getline(cadena[i],30);
 
-      nl=strlen(cadena);
-      consonantes=0;
-       for (i=0;i<nl;i++)
+      }
 
-       {  switch(cadena[i])
+  }
 
-           {
-               case 'A':
-               case 'a':
-               case 'E':
-               case 'e':
-               case 'I':
-               case 'i':
-               case 'O':
-               case 'o':
-               case 'U':
-               case 'u':
+  void cambiar(char cadena[n][30])
+  {
+      int i;
+      int fin;
+      for(i=0;i<n;i++)
+      {   fin =strlen(cadena[i]);
+          cadena[i][fin]='*';
+      }
 
-               break;
-               default: consonantes++;
+  }
 
-                break;
-           }
-
-
-       }
-       return consonantes;
-    }
-
-void contarconsonantes(char cadena[n][30],int consonante[])
-{
-    int i;
-    for(i=0;i<n;i++)
-    {
-        consonante[i]=contar(cadena[i]);
-    }
-
-}
+  void presentar(char cadena[n][30],int consonante[])
+  {
+      int i;
+      for(i=0;i<n;i++)
+      {
+          cout<<" cadena["<<i<<"]..:"<<cadena[i]<<" Tiene "
+          <<consonante[i]<<" consonantes\n";
 
 
-int main()
-{
-  ingreso(cadena);
-  cambiar(cadena);
-  presentar(cadena,consonante);
-  contarconsonantes(cadena,consonante);
+      }
 
-    return 0;
-}
+  }
+ void presentarMayor(char cadena[n][30],int consonante[])
+ {
+     int i,pos,mayor;
+     mayor=0;
+
+     for(i=0;i<n;i++)
+     {
+         if(mayor< consonante[i])
+         {
+             mayor=consonante[i];
+             pos=i;
+         }
+     }
+     cout<<"Mayor es "<<cadena[pos]<<" Con "<<mayor<<" \n";
+
+ }
+
+  int main()
+  {   ingreso(cadena);
+      contarConsonantes(cadena,consonante);
+      cambiar(cadena);
+      presentar(cadena,consonante);
+     presentarMayor(cadena,consonante);
+
+
+      return 0;
+  }
