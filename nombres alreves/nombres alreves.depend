@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1386801775 source:c:\users\alejandro  reyes\documents\github\tercer_parcial\nombres alreves\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

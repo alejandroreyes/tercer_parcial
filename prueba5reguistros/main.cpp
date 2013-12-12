@@ -78,7 +78,9 @@ void calcular (empleado  &emple)
 {   emple.pc= porcomis(emple.turno);
     emple.comision=emple.pc * emple.ventas;
     emple.ihss=seguro(emple.ventas)-emple.tbruto;
+
     emple.tbruto= emple.ventas + emple.comision;
+
     emple.tp=emple.tbruto  - emple.ihss;
 }
 
@@ -101,7 +103,7 @@ void presentar (empleado emple)
 
 int main()
 {
-       ingresar (emple);
+        ingresar (emple);
         calcular (emple);
         presentar (emple);
 
